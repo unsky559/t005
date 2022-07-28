@@ -1,0 +1,17 @@
+.header{
+  height: 60px;
+  .container{
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo{
+    height: 26px;
+  }
+  .controls{
+    * {
+      margin-left: 10px;
+    }
+  }
+}
