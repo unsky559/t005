@@ -1,4 +1,4 @@
 @import "src/styles/fonts";
 .text{
-  @include font(16px, 26px);
+  @extend .font-p;
 }
