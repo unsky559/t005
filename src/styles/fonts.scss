@@ -1,8 +1,16 @@
 $primary-font: 'Nunito', sans-serif;
 
-@mixin font($size: 1.5em, $line-height: 1.5em, $weight: 400){
+@mixin font($size: 16px, $line-height: 26px, $weight: 400){
   font-family: $primary-font;
   font-weight: $weight;
   font-size: $size;
   line-height: $line-height;
+}
+
+.font-h1{
+  @include font(40px, 40px);
+}
+
+.font-p{
+  @include font(16px, 26px);
 }
