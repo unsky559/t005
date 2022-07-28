@@ -1,0 +1,4 @@
+@import "src/styles/fonts";
+.h1{
+  @include font(40px, 40px);
+}
