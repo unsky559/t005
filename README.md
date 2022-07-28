@@ -1,4 +1,6 @@
-# Webpack React Typescript starter
+# t005
+
+Test task for Abz.agency
 
 ## What`s inside?
 
@@ -11,12 +13,6 @@
 - **webpack**
   - html-webpack-plugin
   - copy-webpack-plugin
-
-## Develop
-
-### Assets
-Use ```src/assets``` folder for all media assets like images or videos.
-All those will copy into ```dist/assets``` folder without any changes.
 
 ## Commands
 
