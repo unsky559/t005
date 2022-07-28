@@ -1,0 +1,4 @@
+node_modules/
+dist/
+.idea/
+*.module.scss.d.ts
