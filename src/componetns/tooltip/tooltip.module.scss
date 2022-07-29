@@ -1,0 +1,27 @@
+@import "src/styles/fonts";
+@import "src/styles/colors";
+.tooltip{
+  @extend .font-p;
+  position: absolute;
+  transform: translate(-20px, 20px);
+
+  padding: 3px 16px;
+  border-radius: 4px;
+
+  background-color: $color-font;
+  color: $color-font-negative;
+
+  animation-delay: 0.5s;
+  animation-name: tooltip-in;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+@keyframes tooltip-in {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
