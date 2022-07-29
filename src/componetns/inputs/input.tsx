@@ -5,7 +5,8 @@ import styles from './style.module.scss';
 type propType = {
   name: string,
   label: string,
-  helperText?: string
+  helperText?: string,
+  className?: string
 }
 
 const Input = (props: propType) => {
@@ -18,8 +19,8 @@ const Input = (props: propType) => {
 
   return (
     <>
-      <div className={`${styles.inputComponent} ${errorText && styles.inputComponentError}`}>
-        <label className={`${styles.label} ${inputState ? styles.labelActive : null}`} htmlFor={props.name}>{props.label}</label>
+      <div className={`${styles.inputComponent} ${errorText && styles.inputComponentError} ${props?.className}`}>
+        <label className={`${styles.label} ${inputState && styles?.labelActive}`} htmlFor={props.name}>{props.label}</label>
         <input className={styles.input} type="text" name={props.name} onChange={onChange}/>
       </div>
       { props.helperText
