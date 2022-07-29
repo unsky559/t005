@@ -1,0 +1,78 @@
+@import "src/styles/colors";
+@import "src/styles/fonts";
+
+.formPart{
+  margin-top: 25px;
+  margin-bottom: 47px;
+}
+
+.title{
+  @extend .font-p;
+  margin-bottom: 11px;
+}
+
+.container {
+  @extend .font-p;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 7px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  $size: 20px;
+
+  .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+    border: 1px solid $color-disabled;
+    transition: 0.5s border;
+  }
+
+  .checkmark:after {
+    $inner-size: 10px;
+    top: $inner-size - 1px;
+    left: $inner-size - 1px;
+    width: $inner-size;
+    height: $inner-size;
+    border-radius: 50%;
+    background: $color-secondary;
+  }
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    transform: translate(-50%,-50%) scale(2);
+    opacity: 0;
+    transition: 0.5s transform, 0.3s opacity;
+  }
+  input:checked ~ .checkmark:after {
+    transform: translate(-50%,-50%) scale(1);
+    opacity: 1;
+  }
+
+  input:checked ~ .checkmark {
+    border: 1px solid $color-secondary;
+  }
+
+  input:focus ~ .checkmark {
+    background-color: $color-font-negative;
+    outline: 1px solid black;
+  }
+
+}
+
