@@ -1,0 +1,10 @@
+@import "src/styles/fonts";
+@import "src/styles/colors";
+.h1{
+  @extend .font-h1;
+  color: $color-font;
+}
+
+.white{
+  color: $color-font-negative;
+}

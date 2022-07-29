@@ -1,7 +1,7 @@
 {
-  "name": "webpack-react-starter",
+  "name": "t005",
   "version": "1.0.0",
-  "description": "",
+  "description": "Test task for Abz.agency",
   "scripts": {
     "test": "eslint src/*.ts",
     "build:pord": "webpack --mode=production",
@@ -9,7 +9,6 @@
     "serve": "webpack serve --mode=development"
   },
   "author": "unsky559",
-  "license": "ISC",
   "devDependencies": {
     "@babel/register": "^7.18.9",
     "@types/react-dom": "^18.0.6",

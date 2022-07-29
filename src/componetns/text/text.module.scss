@@ -1,0 +1,10 @@
+@import "src/styles/fonts";
+@import "src/styles/colors";
+.text{
+  @extend .font-p;
+  color: $color-font;
+}
+
+.white{
+  color: $color-font-negative;
+}

@@ -1,0 +1,130 @@
+@import "src/styles/fonts";
+@import "src/styles/colors";
+
+$height: 54px;
+.uploadComponent{
+  display: flex;
+  &:hover{
+    cursor: pointer;
+  }
+  .uploadBtn{
+    @extend .font-p;
+    height: $height;
+    padding: 0 14px;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid $color-font;
+    color: $color-font;
+    background: transparent;
+    transition: 0.3s border;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .uploadFill{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    @extend .font-p;
+    height: $height;
+    padding: 0 15px;
+    border-radius: 0 4px 4px 0;
+    border: 1px solid $color-form-disabled;
+    border-left: 0;
+    color: $color-form-disabled;
+    transition: 0.3s border;
+  }
+}
+.uploadComponent.error{
+  .uploadBtn{
+    border: 2px solid $color-form-error;
+    border-right: 1px solid $color-form-error;
+  }
+  .uploadFill{
+    border: 2px solid $color-form-error;
+    border-left: 1px solid $color-form-error;
+  }
+}
+
+.inputComponent{
+  position: relative;
+  .input{
+    width: 380px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    @extend .font-p;
+    height: $height;
+    padding: 0 15px;
+    border-radius: 4px;
+    border: 1px solid $color-form-disabled;
+    background: transparent;
+    transition: 0.3s border;
+  }
+  .label{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    @extend .font-p;
+    font-weight: 500;
+    color: $color-form-disabled;
+    transition: 0.3s;
+  }
+  .label.labelActive{
+    @include font(12px, 14px, 500);
+    top: 0%;
+    left: 15px - 4px;
+    padding: 2px 4px;
+    background: $color-background;
+  }
+}
+@media screen and (max-width: 360px){
+  .inputComponent{
+    .input{
+      width: 380px - 16px * 3;
+    }
+  }
+}
+.inputComponent.inputComponentError{
+  .input{
+    border: 2px solid $color-form-error;
+  }
+  .label{
+    color: $color-form-error;
+  }
+}
+
+.helperText{
+  @include font(12px, 14px);
+  color: $color-form-disabled;
+  margin-top: 4px;
+  padding-left: 15px;
+}
+
+.errorLabel{
+  display: inline-block;
+  @include font(14px, 14px);
+  padding: 5px 15px;
+  color: $color-form-error;
+  animation-name: erin;
+  animation-fill-mode: both;
+  animation-duration: 0.8s;
+  animation-play-state: running;
+}
+@keyframes erin {
+  0%{
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  0%, 32%, 64%{
+    transform: translateX(-5px);
+  }
+  16%, 48%, 80%{
+    transform: translateX(5px);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
