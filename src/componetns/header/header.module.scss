@@ -1,5 +1,7 @@
+@import "src/styles/colors";
 .header{
   height: 60px;
+  background-color: $color-font-negative;
   .container{
     height: inherit;
     display: flex;
@@ -13,5 +15,23 @@
     * {
       margin-left: 10px;
     }
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .header{
+    padding: 0 60px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .header{
+    padding: 0 32px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .header{
+    padding: 0 16px;
   }
 }

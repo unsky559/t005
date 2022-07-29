@@ -1,0 +1,113 @@
+.banner{
+  position: relative;
+ padding: 164px 0;
+  background-size: 133%;
+  background-position: bottom;
+  z-index: -2;
+  .bannerOverlay{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.5);
+    z-index: -1;
+  }
+  .bannerContent{
+    max-width: 380px;
+    margin: 0 auto;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bannerP{
+    margin-top: 20px;
+    margin-bottom: 33px;
+  }
+}
+
+.heading{
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section{
+  padding-top: 140px;
+}
+
+.cardSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .cardTable{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .buttonCards{
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .cardSection{
+    .cardTable{
+      padding: 0 60px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .cardSection{
+    .cardTable{
+      padding: 0 32px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+  .banner{
+    padding: 89px 0;
+    background-size: auto 100%;
+  }
+}
+
+.headingPost{
+  text-align: center;
+}
+
+@media screen and (max-width: 360px){
+  .banner{
+    padding: 40px 0 71px 0;
+    background-size: auto 100%;
+    .bannerContent{
+      width: 100%;
+      padding: 0 16px;
+    }
+  }
+  .heading, .headingPost{
+    padding: 0 16px;
+  }
+  .cardSection{
+    .cardTable{
+      padding: 0 16px;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+    }
+  }
+  .form{
+    padding: 0 16px;
+  }
+}
+
+.formSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
