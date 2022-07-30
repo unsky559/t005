@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from './button.module.scss';
 
 type propType = {
+  onClick?: () => void,
   children: string,
   disabled?: boolean,
   className?: string,
@@ -9,7 +10,7 @@ type propType = {
 
 const Button = (props: propType) => {
   return (
-    <button className={`${styles.btn} ${props?.className}`} disabled={props.disabled}>
+    <button onClick={props.onClick} className={`${styles.btn} ${props?.className}`} disabled={props.disabled}>
       {props.children}
     </button>
   );

@@ -1,34 +1,36 @@
 import * as React from 'react';
-import { useState } from 'react';
 import styles from './style.module.scss';
 
 type propType = {
   name: string,
   label: string,
   helperText?: string,
-  className?: string
+  className?: string,
+  error?: string,
+  onChange?: (e:any) => any,
+  onBlur?: (e:any) => any,
+  value: string,
+  type: string
 }
 
-const Input = (props: propType) => {
-  const [inputState, updateInputState] = useState("");
-  const [errorText, updateError] = useState('');
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    updateInputState(e.target.value);
-  }
-
-  return (
-    <>
-      <div className={`${styles.inputComponent} ${errorText && styles.inputComponentError} ${props?.className}`}>
-        <label className={`${styles.label} ${inputState && styles?.labelActive}`} htmlFor={props.name}>{props.label}</label>
-        <input className={styles.input} type="text" name={props.name} onChange={onChange}/>
+const Input = (props: propType) => (
+    <div className={props?.className}>
+      <div className={`${styles.inputComponent} ${props?.error && styles.inputComponentError}`}>
+        <label className={`${styles.label} ${props.value && styles?.labelActive}`} htmlFor={props.name}>{props.label}</label>
+        <input
+          className={styles.input}
+          type={props.type}
+          name={props.name}
+          onChange={props?.onChange}
+          onBlur={props?.onBlur}
+          value={props.value}
+        />
       </div>
       { props.helperText
-        && !errorText
+        && !props?.error
         && <span className={styles.helperText}>{props.helperText}</span> }
-      {errorText && <span className={styles.errorLabel}>{errorText}</span>}
-    </>
-  );
-};
+      {props?.error && <span className={styles.errorLabel}>{props?.error}</span>}
+    </div>
+);
 
 export default Input;

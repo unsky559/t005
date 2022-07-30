@@ -4,6 +4,7 @@
 $height: 54px;
 .uploadComponent{
   display: flex;
+  width: 380px;
   &:hover{
     cursor: pointer;
   }
@@ -16,15 +17,12 @@ $height: 54px;
     color: $color-font;
     background: transparent;
     transition: 0.3s border;
-    &:hover{
-      cursor: pointer;
-    }
   }
   .uploadFill{
+    @extend .font-p;
     flex-grow: 1;
     display: flex;
     align-items: center;
-    @extend .font-p;
     height: $height;
     padding: 0 15px;
     border-radius: 0 4px 4px 0;
@@ -32,6 +30,15 @@ $height: 54px;
     border-left: 0;
     color: $color-form-disabled;
     transition: 0.3s border;
+    overflow: hidden;
+
+  }
+  .uploadedFile{
+    &.fileSelected{
+      color: $color-font;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 }
 .uploadComponent.error{
@@ -95,6 +102,7 @@ $height: 54px;
 }
 
 .helperText{
+  position: absolute;
   @include font(12px, 14px);
   color: $color-form-disabled;
   margin-top: 4px;
@@ -102,6 +110,7 @@ $height: 54px;
 }
 
 .errorLabel{
+  position: absolute;
   display: inline-block;
   @include font(14px, 14px);
   padding: 5px 15px;
