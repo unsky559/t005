@@ -2,6 +2,8 @@
 
 Test task for Abz.agency
 
+Deploy: https://goog.men/p/t005/
+
 ## What`s inside?
 
 - **react**
