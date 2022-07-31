@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLint = require('eslint-webpack-plugin');
 const path = require('path');
 
@@ -8,6 +8,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'assets/[hash][ext][query]',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -16,11 +17,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'index.html'),
     }),
-    new CopyPlugin({
-      patterns: [
-        { from: path.resolve(__dirname, 'src/assets'), to: 'assets' },
-      ],
-    }),
+    new MiniCssExtractPlugin(),
     new ESLint(),
   ],
   module: {
@@ -28,7 +25,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: { modules: true },
