@@ -10,8 +10,12 @@ const Header = () => {
       <Container className={styles.container}>
         <img src={logoImage} className={styles.logo} alt="TestTask logo"/>
         <div className={styles.controls}>
-          <Button>Users</Button>
-          <Button>Sign up</Button>
+          <Button onClick={() => {
+            document.getElementById('users').scrollIntoView();
+          }}>Users</Button>
+          <Button onClick={() => {
+            document.getElementById('form').scrollIntoView();
+          }}>Sign up</Button>
         </div>
       </Container>
     </header>

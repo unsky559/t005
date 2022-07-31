@@ -5,6 +5,7 @@ Test task for Abz.agency
 ## What`s inside?
 
 - **react**
+  - axios
 - **typescript**
 - **sass**
   - sass-loader

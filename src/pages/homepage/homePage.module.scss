@@ -1,16 +1,14 @@
 .banner{
   position: relative;
- padding: 164px 0;
+
   background-size: 133%;
   background-position: bottom;
-  z-index: -2;
   .bannerOverlay{
-    position: absolute;
+    padding: 164px 0;
     top: 0;
     height: 100%;
     width: 100%;
     background: rgba(0,0,0,.5);
-    z-index: -1;
   }
   .bannerContent{
     max-width: 380px;
@@ -45,18 +43,20 @@
 
 @media screen and (max-width: 768px){
   .banner{
-    padding: 89px 0;
+    .bannerOverlay{
+      padding: 89px 0;
+    }
     background-size: auto 100%;
   }
 }
 
-.headingPost{
-  text-align: center;
-}
+
 
 @media screen and (max-width: 360px){
   .banner{
-    padding: 40px 0 71px 0;
+    .bannerOverlay{
+      padding: 40px 0 71px 0;
+    }
     background-size: auto 100%;
     .bannerContent{
       width: 100%;

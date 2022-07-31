@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import axios from 'axios';
 import Input from '../inputs/input';
 import styles from './form.module.scss';
@@ -10,9 +10,12 @@ import useInput from '../../hooks/useInput';
 import radioList from '../inputs/radio/radioList';
 import Preloader from '../preloader/preloader';
 import successImage from '../../assets/images/success-image.svg';
+import Heading from '../heading/heading';
 
 type propType = {
-  className?: string
+  id?: string,
+  className?: string,
+  formSuccess: [boolean, Dispatch<SetStateAction<boolean>>],
 }
 
 const Form = (props:propType) => {
@@ -33,7 +36,7 @@ const Form = (props:propType) => {
   const uploadError = useState('');
 
   const [loadingState, updateLoadingState] = useState(false);
-  const [isSucces, setSuccess] = useState(false);
+  const [isSucces, setSuccess] = props.formSuccess;
 
   useEffect(() => {
     const radios: React.SetStateAction<any[]> = [];
@@ -106,33 +109,36 @@ const Form = (props:propType) => {
   };
 
   return (
-    <div className={`${props?.className} ${styles.formSpacing}`}>
-      {
-        !isSucces && <>
-          <div className={styles.form}>
-            <Input type="text" error={name.error} onChange={name.onChange} onBlur={name.onBlur} value={name.value} name="name" label="Your name" />
-            <Input type="email" error={email.error} onChange={email.onChange} onBlur={email.onBlur} value={email.value} className={styles.spacingVertical} name="email" label="Email" />
-            <Input type="text" error={number.error} onChange={number.onChange} onBlur={number.onBlur} value={number.value} className={styles.bottomSpacing} name="phone" label="Phone" helperText="+38 (XXX) XXX - XX - XX" />
-            <Radio name="position" select={selectPositionId} radios={radioPositions}/>
-            <Upload errorState={uploadError} file={updateFile} isValid={fileUpload} />
-          </div>
-          {loadingState ? <div className={styles.preloaderCenter}>
-            <Preloader/>
-          </div> : <Button
-            onClick={onSubmit}
-            disabled={!name.valid || !email.valid || !number.valid || !isFileUploadValid}
-          >
-            Sing up
-          </Button>
-          }
-        </>
-      }
-      {
-        isSucces && <>
-          <img className={styles.successImage} src={successImage} alt="Susses"/>
-        </>
-      }
-    </div>
+    <>
+      <Heading id={props.id} className={styles.headingPost}>{isSucces ? 'User successfully registered' : 'Working with POST request'}</Heading>
+      <div className={`${props?.className} ${styles.formSpacing}`}>
+        {
+          !isSucces && <>
+            <div className={styles.form}>
+              <Input type="text" error={name.error} onChange={name.onChange} onBlur={name.onBlur} value={name.value} name="name" label="Your name" />
+              <Input type="email" error={email.error} onChange={email.onChange} onBlur={email.onBlur} value={email.value} className={styles.spacingVertical} name="email" label="Email" />
+              <Input type="text" error={number.error} onChange={number.onChange} onBlur={number.onBlur} value={number.value} className={styles.bottomSpacing} name="phone" label="Phone" helperText="+38 (XXX) XXX - XX - XX" />
+              <Radio name="position" select={selectPositionId} radios={radioPositions}/>
+              <Upload errorState={uploadError} file={updateFile} isValid={fileUpload} />
+            </div>
+            {loadingState ? <div className={styles.preloaderCenter}>
+              <Preloader/>
+            </div> : <Button
+              onClick={onSubmit}
+              disabled={!name.valid || !email.valid || !number.valid || !isFileUploadValid}
+            >
+              Sing up
+            </Button>
+            }
+          </>
+        }
+        {
+          isSucces && <>
+            <img className={styles.successImage} src={successImage} alt="Susses"/>
+          </>
+        }
+      </div>
+    </>
   );
 };
 
