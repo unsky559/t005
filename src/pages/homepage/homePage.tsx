@@ -8,6 +8,7 @@ import Container from '../../componetns/container/container';
 import Form from '../../componetns/form/form';
 import styles from './homePage.module.scss';
 import bg from '../../assets/images/banner-bg.jpeg';
+import CardTable from '../../componetns/card-table/card-table';
 
 const HomePage = () => (
     <div>
@@ -26,51 +27,8 @@ const HomePage = () => (
       <Container>
         <section className={`${styles.section} ${styles.cardSection}`}>
           <Heading className={styles.heading}>Working with GET request</Heading>
-          <div className={styles.cardTable}>
-            <Card title="Salvador Stewart Flynn Thomas Anderson"
-                  imageURL="https://thispersondoesnotexist.com/image"
-                  description={[
-                    'Forntend Developer Frontend Developer',
-                    'something@gmail.com',
-                    '+380631761854',
-                  ]}/>
-            <Card title="Salvador Stewart Flynn Thomas Anderson"
-                  imageURL="https://thispersondoesnotexist.com/image"
-                  description={[
-                    'Forntend Developer Frontend Developer',
-                    'something@gmail.com',
-                    '+380631761854',
-                  ]}/>
-            <Card title="Salvador Stewart Flynn Thomas Anderson"
-                  imageURL="https://thispersondoesnotexist.com/image"
-                  description={[
-                    'Forntend Developer Frontend Developer',
-                    'something@gmail.com',
-                    '+380631761854',
-                  ]}/>
-            <Card title="Salvador Stewart Flynn Thomas Anderson"
-                  imageURL="https://thispersondoesnotexist.com/image"
-                  description={[
-                    'Forntend Developer Frontend Developer',
-                    'something@gmail.com',
-                    '+380631761854',
-                  ]}/>
-            <Card title="Salvador Stewart Flynn Thomas Anderson"
-                  imageURL="https://thispersondoesnotexist.com/image"
-                  description={[
-                    'Forntend Developer Frontend Developer',
-                    'something@gmail.com',
-                    '+380631761854',
-                  ]}/>
-            <Card title="Salvador Stewart Flynn Thomas Anderson"
-                  imageURL="https://thispersondoesnotexist.com/image"
-                  description={[
-                    'Forntend Developer Frontend Developer',
-                    'something@gmail.com',
-                    '+380631761854',
-                  ]}/>
-          </div>
-          <Button className={styles.buttonCards}>Show more</Button>
+          <CardTable/>
+
         </section>
 
         <section className={`${styles.section} ${styles.formSection}`}>
