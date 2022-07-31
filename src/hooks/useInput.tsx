@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as React from 'react';
 
 // eslint-disable-next-line no-control-regex
@@ -57,6 +57,7 @@ const useInput = (initValue: string, validators: validatorType) => {
   return {
     value,
     error: (out && error),
+    setError,
     onChange,
     onBlur,
     valid: (!error),
