@@ -91,6 +91,9 @@ $height: 54px;
       width: 380px - 16px * 3;
     }
   }
+  .uploadComponent{
+     max-width: 380px - 16px * 3;
+  }
 }
 .inputComponent.inputComponentError{
   .input{

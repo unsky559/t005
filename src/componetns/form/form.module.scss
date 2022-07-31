@@ -29,3 +29,13 @@
   margin-top: 50px;
   margin-bottom: 100px;
 }
+
+.headingPost{
+  text-align: center;
+}
+
+@media screen and (max-width: 360px){
+  .headingPost{
+    padding: 0 16px;
+  }
+}
