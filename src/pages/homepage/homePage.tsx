@@ -1,15 +1,15 @@
 import * as React from 'react';
+import { useState, Suspense } from 'react';
 import Heading from '../../componetns/heading/heading';
 import Text from '../../componetns/text/text';
 import Button from '../../componetns/button/button';
-import Card from '../../componetns/card/card';
 import Header from '../../componetns/header/header';
 import Container from '../../componetns/container/container';
-import Form from '../../componetns/form/form';
 import styles from './homePage.module.scss';
 import bg from '../../assets/images/banner-bg.jpeg';
-import CardTable from '../../componetns/card-table/card-table';
-import { useState } from 'react';
+
+const Form = React.lazy(() => import('../../componetns/form/form'));
+const CardTable = React.lazy(() => import('../../componetns/card-table/card-table'));
 
 const HomePage = () => {
   const formSuccess = useState(false);
@@ -38,13 +38,17 @@ const HomePage = () => {
         <section className={`${styles.section} ${styles.cardSection}`}>
           <Heading id="users" className={styles.heading}>Working with GET request</Heading>
 
-          <CardTable formSuccess={formSuccess}/>
+          <Suspense>
+            <CardTable formSuccess={formSuccess}/>
+          </Suspense>
 
         </section>
 
         <section className={`${styles.section} ${styles.formSection}`}>
 
-          <Form id="form" formSuccess={formSuccess} className={styles.form}/>
+          <Suspense>
+            <Form id="form" formSuccess={formSuccess} className={styles.form}/>
+          </Suspense>
 
         </section>
       </Container>
