@@ -2,12 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import styles from './radio.module.scss';
 import Text from '../../text/text';
-
-type radioList = {
-  text: string,
-  value: string
-  defaultSelected?: boolean
-}
+import radioList from './radioList';
 
 type propType = {
   name: string,
