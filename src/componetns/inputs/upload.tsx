@@ -4,12 +4,13 @@ import styles from './style.module.scss';
 
 type propType = {
   isValid: React.Dispatch<React.SetStateAction<boolean>>,
-  file: Dispatch<any>
+  file: Dispatch<any>,
+  errorState: [string, React.Dispatch<React.SetStateAction<string>>],
 }
 
 const Upload = (props: propType) => {
   const [uploadText, updateUploadText] = useState('');
-  const [errorText, updateError] = useState('');
+  const [errorText, updateError] = props.errorState;
 
   const onClick = () => {
     const form = document.createElement('input');
