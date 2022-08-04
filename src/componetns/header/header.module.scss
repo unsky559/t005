@@ -7,6 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
   }
   .logo{
     height: 26px;
@@ -18,20 +19,35 @@
   }
 }
 
+@media screen and (max-width: 1170px + 16px * 2){
+  .header{
+    .container{
+      padding: 0 60px;
+    }
+  }
+}
+
 @media screen and (max-width: 1024px){
   .header{
-    padding: 0 60px;
+    .container{
+      padding: 0 60px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 768px){
+  .header{
+    .container{
+      padding: 0 32px;
+    }
   }
 }
 
 @media screen and (max-width: 768px){
   .header{
-    padding: 0 32px;
-  }
-}
-
-@media screen and (max-width: 768px){
-  .header{
-    padding: 0 16px;
+    .container{
+      padding: 0 16px;
+    }
   }
 }
