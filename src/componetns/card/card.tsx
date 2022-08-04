@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styles from './card.module.scss';
+import coverImage from '../../assets/images/photo-cover.svg';
 import Tooltip from '../tooltip/tooltip';
 
 type propType = {
@@ -8,10 +9,14 @@ type propType = {
   imageURL: string
 }
 
-const Card = (props: propType) => {
-  return (
+const imageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+  e.currentTarget.onerror = null;
+  e.currentTarget.src = coverImage;
+};
+
+const Card = (props: propType) => (
     <article className={styles.card}>
-      <img className={styles.image} src={props.imageURL} alt=""/>
+      <img onError={imageError} className={styles.image} src={props.imageURL} alt=""/>
       <Tooltip text={props.title}>
         <p className={styles.title}>{props.title}</p>
       </Tooltip>
@@ -25,7 +30,6 @@ const Card = (props: propType) => {
         <p className={styles.description}>{props.description[2]}</p>
       </Tooltip>
     </article>
-  );
-};
+);
 
 export default Card;

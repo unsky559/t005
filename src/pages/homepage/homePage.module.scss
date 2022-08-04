@@ -41,6 +41,12 @@
 }
 
 
+.form{
+  width: 100%;
+  padding: 0 16px;
+  max-width: min(380px + 16px * 2, 100%);
+}
+
 @media screen and (max-width: 768px){
   .banner{
     .bannerOverlay{
@@ -64,9 +70,6 @@
     }
   }
   .heading, .headingPost{
-    padding: 0 16px;
-  }
-  .form{
     padding: 0 16px;
   }
 }

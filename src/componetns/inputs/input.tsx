@@ -14,7 +14,7 @@ type propType = {
 }
 
 const Input = (props: propType) => (
-    <div className={props?.className}>
+    <div className={`${props?.className} ${styles.inputWrap}`}>
       <div className={`${styles.inputComponent} ${props?.error && styles.inputComponentError}`}>
         <label className={`${styles.label} ${props.value && styles?.labelActive}`} htmlFor={props.name}>{props.label}</label>
         <input
